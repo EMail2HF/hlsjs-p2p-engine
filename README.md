@@ -46,11 +46,11 @@ See [demos](https://github.com/cdnbye/hlsjs-p2p-engine#player-integration).
 ## Browser Support
 WebRTC has already been incorporated into the HTML5 standard and it is broadly deployed in modern browsers. The compatibility of CDNBye depends on the browser support of WebRTC and Hls.js. Please note that iOS Safari "Mobile" does not support the MediaSource API.
 
- Compatibility|Chrome | Firefox | Mac Safari| iOS Safari | Opera | IE | Edge|   
-:-: | :-: | :-: | :-: | :-: | :-: | :-:| :-:
-WebRTC | Yes | Yes | Yes | Yes | Yes | No | No
-Hls.js | Yes | Yes | Yes | No | Yes | Yes | Yes
-CDNBye | Yes | Yes | Yes | No | Yes | No | No 
+ Compatibility|Chrome | Firefox | Mac Safari| Android Wechat/QQ | Opera | IE | Edge| iOS Safari | 
+:-: | :-: | :-: | :-: | :-: | :-: | :-:| :-:| :-:
+WebRTC | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ✔ |
+Hls.js | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ |
+CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
 
 ## Include
 Include the pre-built script of latest version bundled with hls.js(recommended): 
