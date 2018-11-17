@@ -89,7 +89,7 @@ class P2PEngine extends EventEmitter {
 
 
         //实例化Fetcher
-        let fetcher = new Fetcher(this, 'free', window.encodeURIComponent(channel), this.config.announce, browserInfo);
+        let fetcher = new Fetcher(this, 'free', window.encodeURIComponent(channel), null, browserInfo);
         this.fetcher = fetcher;
         //实例化tracker服务器
         this.tracker = new Tracker(this, fetcher, this.config);
