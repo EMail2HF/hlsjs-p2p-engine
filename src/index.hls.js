@@ -9,8 +9,9 @@ if (__IS_HLSJS_LIGHT__) {
 
 let recommendedHlsjsConfig = {
     maxBufferSize: 0,
-    maxBufferLength: 8,
-    liveSyncDurationCount: 15,
+    maxBufferLength: 5,
+    // liveSyncDurationCount: 10,
+    liveSyncDuration: 30,
     fragLoadingTimeOut: 4000,              // used by fragment-loader
 };
 
@@ -24,13 +25,12 @@ class CDNByeHlsjs extends Hlsjs{
 
         let p2pConfig = config.p2pConfig || {};
 
-        let mergedHlsjsConfig = recommendedHlsjsConfig;
+        let mergedHlsjsConfig = JSON.parse(JSON.stringify(recommendedHlsjsConfig)); // 防止引用
         for (let prop in config) {
             if (prop === 'p2pConfig') continue;
             mergedHlsjsConfig[prop] = config[prop];
         }
 
-        // console.warn(mergedHlsjsConfig);
         super(mergedHlsjsConfig);
 
         if (P2PEngine.isSupported()) {

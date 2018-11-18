@@ -37,14 +37,16 @@ class BTScheduler extends EventEmitter {
         const { logger } = this.engine;
         if (this.config.live) return;                                                 //rearest first只用于vod
         if (!this.hasPeers) return;
-        let requested = [];
+        // let requested = [];
+        const requestedPeers = [];
         for (let idx=sn+1;idx<=sn+this.config.urgentOffset+1;idx++) {
             if (!this.bitset.has(idx) && idx !== this.loadingSN && this.bitCounts.has(idx)) {                  //如果这个块没有缓存并且peers有
                 for (let peer of this.peerMap.values()) {                           //找到拥有这个块并且空闲的peer
-                    if (peer.isAvailable && peer.bitset.has(idx)) {
+                    if (!requestedPeers.includes(peer) && peer.isAvailable && peer.bitset.has(idx)) {
                         peer.requestDataBySN(idx, false);
                         logger.debug(`request prefetch ${idx} from peer ${peer.remotePeerId}`);
-                        requested.push(idx);
+                        requestedPeers.push(peer);
+                        // requested.push(idx);
                         break;
                     }
                 }
@@ -286,6 +288,11 @@ class BTScheduler extends EventEmitter {
                 if (segId && this.bufMgr.hasSegOfId(segId)) {
                     let seg = this.bufMgr.getSegById(segId);
                     dc.sendBuffer(seg.sn, seg.level, seg.segId, seg.data);
+                    // test
+                    // setTimeout(() => {
+                    //     console.warn(`sendBuffer`);
+                    //     dc.sendBuffer(seg.sn, seg.level, seg.segId, seg.data);
+                    // }, 20000);
                 } else {
                     dc.sendJson({
                         event: Events.DC_PIECE_NOT_FOUND,
@@ -300,6 +307,14 @@ class BTScheduler extends EventEmitter {
                 //     window.clearTimeout(this.criticaltimeouter);                             //清除定时器
                 //     this._criticaltimeout();
                 // }
+            })
+            .on(Events.DC_USELESS, () => { // 多次数据请求超时
+                logger.warn(`datachannel ${dc.remotePeerId} download miss reach dcTolerance`);
+                if (this.config.live) {
+                    dc.choked = true;  // live情况下不再向此节点请求，但允许此节点的数据请求
+                } else {
+                    dc.close();        // VOD由于数据传输基本是单向的，所以超时多次可以直接关闭，从而可以请求更多节点
+                }
             })
     }
 
@@ -358,6 +373,7 @@ class BTScheduler extends EventEmitter {
         logger.warn(`critical request timeout`);
         this.criticalSeg = null;
         this.criticaltimeouter = null;
+        if (this.targetPeer) this.targetPeer.loadtimeout();
         this.callbacks.onTimeout(this.stats, this.context, null);
     }
 }
