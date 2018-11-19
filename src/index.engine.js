@@ -207,7 +207,7 @@ class P2PEngine extends EventEmitter {
     destroy() {
         this.disableP2P();
         this.removeAllListeners();
-        this.logger.warn(`destroy p2p engine`);
+        console.warn(`destroy p2p engine`);
     }
 
     get version() {

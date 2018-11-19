@@ -14,7 +14,7 @@ let defaultP2PConfig = {
 
     packetSize: 64*1024,                        // 每次通过datachannel发送的包的大小(如果要兼容旧浏览器可以设为16*1024)
     maxBufferSize: {                            // p2p缓存的最大数据量（分为PC和移动端）
-        pc: 1024*1024*150,                      // PC端缓存大小
+        pc: 1024*1024*200,                      // PC端缓存大小
         mobile: 1024*1024*100,                   // 移动端缓存大小
     },
     loadTimeoutRate: 0.7,                        // p2p下载的超时时间比率，乘以ts的duration得出超时时间
