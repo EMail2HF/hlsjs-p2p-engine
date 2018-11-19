@@ -28,7 +28,7 @@ let defaultP2PConfig = {
 
     webRTCConfig: {},                            // 传入channelConfig用于createDataChannel，config用于RTCPeerConnection
 
-    p2pBlackList: ['aac', 'mp3'],                // 不参与P2P的文件类型，防止报错
+    p2pBlackList: ['aac', 'mp3', 'vtt', 'webvtt'],                // 不参与P2P的文件类型，防止报错
 
     agent: '',                                   // 代理商标识
 
