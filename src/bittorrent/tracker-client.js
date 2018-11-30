@@ -1,11 +1,11 @@
 
 import EventEmitter from 'events';
-import BTScheduler from './bt-scheduler';
+import Scheduler from './scheduler';
 import SignalClient from '../signal-client';
-import {DataChannel, Events, getPeersThrottle} from 'core';
-import {throttle} from '../utils/toolFuns';
+import { DataChannel, Events, getPeersThrottle } from 'core';
+import { throttle } from '../utils/toolFuns';
 
-class BTTracker extends EventEmitter {
+class TrackerClient extends EventEmitter {
     constructor(engine, fetcher, config) {
         super();
 
@@ -13,7 +13,7 @@ class BTTracker extends EventEmitter {
         this.logger = engine.logger;
         this.config = config;
         this.connected = false;                                // 与信令的连接状态
-        this.scheduler = new BTScheduler(engine, config);
+        this.scheduler = new Scheduler(engine, config);
         this.DCMap = new Map();                                  //{key: remotePeerId, value: DataChannnel} 目前已经建立连接或正在建立连接的dc
         this.failedDCSet= new Set();                            //{remotePeerId} 建立连接失败的dc
         this.signalerWs = null;                                  //信令服务器ws
@@ -232,4 +232,4 @@ class BTTracker extends EventEmitter {
 
 }
 
-export default BTTracker;
+export default TrackerClient;

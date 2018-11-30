@@ -2,7 +2,7 @@ import EventEmitter from 'events';
 import {Events} from 'core';
 // import {segmentId} from '../utils/toolFuns';
 
-class BTScheduler extends EventEmitter {
+class Scheduler extends EventEmitter {
     constructor(engine, config) {
         super();
 
@@ -379,4 +379,4 @@ class BTScheduler extends EventEmitter {
 }
 
 
-export default BTScheduler;
+export default Scheduler;
