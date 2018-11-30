@@ -7,6 +7,7 @@ import {Events, Fetcher, getBrowserRTC, DataChannel} from 'core';
 import Logger from './utils/logger';
 import platform from './utils/platform';
 import { defaultChannelId, defaultSegmentId, isBlockType} from './utils/toolFuns';
+import getPlayer from './utils/player-detector';
 
 class P2PEngine extends EventEmitter {
 
@@ -45,7 +46,7 @@ class P2PEngine extends EventEmitter {
                 device: platform.getPlatform(),
                 netType: platform.getNetType() || undefined,
                 version: P2PEngine.version,
-                tag: this.config.tag || this.hlsjs.constructor.version,
+                tag: this.config.tag || getPlayer(),  // tag默认是第三方播放器名称
                 live: isLive,
                 agent: this.config.agent || undefined,
             };
