@@ -83,6 +83,8 @@ CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
     - 参见 [tcplayer-demo.html](demo/tcplayer-demo.html)
 - [Chimee](http://chimee.org/)
     - 参见 [chimee-demo.html](demo/chimee-demo.html)
+- [XGPlayer](http://h5player.bytedance.com/)
+    - 参见 [xgplayer-demo.html](demo/xgplayer-demo.html)
 - `欢迎贡献您的播放器demo`
     - CDNBye可以集成到内置hls.js的任何H5视频播放器中！
 

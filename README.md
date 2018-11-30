@@ -84,6 +84,8 @@ See [Usage](http://docs.cdnbye.com/#/en/usage?id=usage)
     - See [tcplayer-demo.html](demo/tcplayer-demo.html)
 - [Chimee](http://chimee.org/)
     - See [chimee-demo.html](demo/chimee-demo.html)
+- [XGPlayer](http://h5player.bytedance.com/en/)
+    - See [xgplayer-demo.html](demo/xgplayer-demo.html)
 - `Add your customized player here`
     - CDNBye can be integrated into any HTML5 video player that with hls.js built in.
 
