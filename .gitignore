@@ -6,6 +6,7 @@
 /src/core
 !/src/cdnbye-core/index.js
 /docs
+/demo/playerjs-demo.html
 /demo/test-standalone.html
 /demo/test-quick-start.html
 /demo/test-API.html

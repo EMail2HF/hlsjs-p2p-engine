@@ -10,7 +10,7 @@
 </p>
 
 
-This JS library implements [WebRTC](https://en.wikipedia.org/wiki/WebRTC) datachannel to scale live/vod video streaming by peer-to-peer network using bittorrent-like protocol. The forming peer network can be layed over other CDNs or on top of the origin server. Powered by [hls.js](https://github.com/video-dev/hls.js), it can play HLS on any platform with many popular HTML5 players such as video.js, JWPlayer and Flowplayer. BTW, if you need a p2p engine for [dash.js](https://github.com/Dash-Industry-Forum/dash.js), [tell me](https://github.com/cdnbye/dashjs-p2p-engine/issues/1)!
+CDNBye hlsjs-p2p-engine implements [WebRTC](https://en.wikipedia.org/wiki/WebRTC) datachannel to scale live/vod video streaming by peer-to-peer network using bittorrent-like protocol. The forming peer network can be layed over other CDNs or on top of the origin server. Powered by [hls.js](https://github.com/video-dev/hls.js), it can play HLS on any platform with many popular HTML5 players such as video.js, JWPlayer and Flowplayer. BTW, if you need a p2p engine for [dash.js](https://github.com/Dash-Industry-Forum/dash.js), [tell me](https://github.com/cdnbye/dashjs-p2p-engine/issues/1)!
 
 ## Features
 - WebRTC data channels for lightweight peer-to-peer communication with no plugins
@@ -21,6 +21,7 @@ This JS library implements [WebRTC](https://en.wikipedia.org/wiki/WebRTC) datach
 - Support most popular HTML5 players such as video.js、Clappr、Flowplayer
 - Efficient scheduling policies to enhance the performance of P2P streaming
 - Use IP database to group up peers by ISP and regions
+- API frozen, new releases will not break your code
 
 
 ## Playground
