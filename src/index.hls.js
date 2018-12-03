@@ -39,8 +39,10 @@ class CDNByeHlsjs extends Hlsjs{
 
         this.on(Hlsjs.Events.DESTROYING, () => {
             console.warn('destroying hlsjs');
-            this._p2pEngine.destroy();
-            this._p2pEngine = null;
+            if (this._p2pEngine) {
+                this._p2pEngine.destroy();
+                this._p2pEngine = null;
+            }
         });
     }
 

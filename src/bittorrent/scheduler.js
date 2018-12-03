@@ -41,7 +41,6 @@ class Scheduler extends EventEmitter {
         const requestedPeers = [];
         const { prefetchOffset, prefetchNum } = this.config;
         for (let idx=sn+prefetchOffset;idx<sn+prefetchOffset+prefetchNum;idx++) {
-            console.warn(`sn ${sn} idx ${idx} max ${sn+prefetchOffset+prefetchNum}`);
             if (!this.bitset.has(idx) && idx !== this.loadingSN && this.bitCounts.has(idx)) {                  //如果这个块没有缓存并且peers有
                 for (let peer of this.peerMap.values()) {                           //找到拥有这个块并且空闲的peer
                     if (!requestedPeers.includes(peer) && peer.isAvailable && peer.bitset.has(idx)) {
@@ -258,7 +257,6 @@ class Scheduler extends EventEmitter {
             .on(Events.DC_PIECE_NOT_FOUND, msg => {
                 if (this.criticalSeg && this.criticalSeg.segId === msg.seg_id) {             //接收到critical未找到的响应
                     window.clearTimeout(this.criticaltimeouter);                             //清除定时器
-                    // this.criticaltimeouter = null;
                     logger.info(`DC_PIECE_NOT_FOUND`);
                     this._criticaltimeout();                                                   //触发超时，由xhr下载
                 }
@@ -275,7 +273,6 @@ class Scheduler extends EventEmitter {
                     this.context.frag.fromPeerId = dc.remotePeerId;
                     this.callbacks.onSuccess(response, stats, this.context);
                 } else {
-                    // this.bufMgr.addBuffer(response.sn, response.seg_id, response.data, dc.remotePeerId);
                     this.bufMgr.handleFrag(response.sn, response.level, response.seg_id, response.data, dc.remotePeerId, false);
                 }
                 this.updateLoadedSN(response.sn);
