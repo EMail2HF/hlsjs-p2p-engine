@@ -65,27 +65,27 @@ CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
 ## 使用方法
 参考[文档](http://docs.cdnbye.com/#/usage?id=%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6)
 
-## 播放器集成
+## 播放器集成  
 - [videojs](http://videojs.com/)
-    - 参见 [videojs-demo.html](demo/videojs-demo.html)
+    - 参见 [videojs demo](https://docs.cdnbye.com/#/players?id=videojs)
 - [flowplayer](https://flowplayer.com/)
-    - 参见 [flowplayer-demo.html](demo/flowplayer-demo.html)
+    - 参见 [flowplayer demo](https://docs.cdnbye.com/#/players?id=flowplayer)
 - [jwplayer](https://www.jwplayer.com/)
-    - 参见 [jwplayer-demo.html](demo/jwplayer-demo.html)
+    - 参见 [jwplayer demo](https://docs.cdnbye.com/#/players?id=jwplayer)
 - [DPlayer](https://github.com/MoePlayer/DPlayer)
-    - 参见 [dplayer-demo.html](demo/dplayer-demo.html)，基于嵌入hlsjs-p2p-engine的[P2P-DPlayer](https://github.com/cdnbye/P2P-DPlayer)
+    - 参见 [dplayer demo](https://docs.cdnbye.com/#/players?id=dplayer)，基于嵌入hlsjs-p2p-engine的[P2P-DPlayer](https://github.com/cdnbye/P2P-DPlayer)
 - [CKPlayer](http://www.ckplayer.com/)
-    - 参见 [ckplayer-demo.html](demo/ckplayer-demo.html)，基于嵌入hlsjs-p2p-engine的[P2P-CKPlayer](https://github.com/cdnbye/P2P-CKPlayer)
+    - 参见 [ckplayer demo](https://docs.cdnbye.com/#/players?id=ckplayer)，基于嵌入hlsjs-p2p-engine的[P2P-CKPlayer](https://github.com/cdnbye/P2P-CKPlayer)
 - [clappr](https://github.com/clappr/clappr)
-    - 参见 [clappr-demo.html](demo/clappr-demo.html)
+    - 参见 [clappr demo](https://docs.cdnbye.com/#/players?id=clappr)
 - [MediaElement.js](http://www.mediaelementjs.com/)
-    - 参见 [mediaelement-demo.html](demo/mediaelement-demo.html)
+    - 参见 [mediaelement demo](https://docs.cdnbye.com/#/players?id=mediaelementjs)
 - [TCPlayer](https://cloud.tencent.com/document/product/267/7479)(腾讯云播放器)
-    - 参见 [tcplayer-demo.html](demo/tcplayer-demo.html)
+    - 参见 [tcplayer demo](https://docs.cdnbye.com/#/players?id=tcplayer)
 - [Chimee](http://chimee.org/)
-    - 参见 [chimee-demo.html](demo/chimee-demo.html)
-- [XGPlayer](http://h5player.bytedance.com/)
-    - 参见 [xgplayer-demo.html](demo/xgplayer-demo.html)
+    - 参见 [chimee demo](https://docs.cdnbye.com/#/players?id=chimee)
+- [XGPlayer](http://h5player.bytedance.com/en/)
+    - 参见 [xgplayer demo](https://docs.cdnbye.com/#/players?id=xgplayer)
 - `欢迎贡献您的播放器demo`
     - CDNBye可以集成到内置hls.js的任何H5视频播放器中！
 

@@ -68,25 +68,25 @@ See [Usage](http://docs.cdnbye.com/#/en/usage?id=usage)
 
 ## Player Integration
 - [videojs](http://videojs.com/)
-    - See [videojs-demo.html](demo/videojs-demo.html)
+    - See [videojs demo](https://docs.cdnbye.com/#/en/players?id=videojs)
 - [flowplayer](https://flowplayer.com/)
-    - See [flowplayer-demo.html](demo/flowplayer-demo.html)
+    - See [flowplayer demo](https://docs.cdnbye.com/#/en/players?id=flowplayer)
 - [jwplayer](https://www.jwplayer.com/)
-    - See [jwplayer-demo.html](demo/jwplayer-demo.html)
+    - See [jwplayer demo](https://docs.cdnbye.com/#/en/players?id=jwplayer)
 - [DPlayer](https://github.com/MoePlayer/DPlayer)
-    - See [dplayer-demo.html](demo/dplayer-demo.html) based on [P2P-DPlayer](https://github.com/cdnbye/P2P-DPlayer).
+    - See [dplayer demo](https://docs.cdnbye.com/#/en/players?id=dplayer) based on [P2P-DPlayer](https://github.com/cdnbye/P2P-DPlayer).
 - [CKPlayer](http://www.ckplayer.com/)
-    - See [ckplayer-demo.html](demo/ckplayer-demo.html) based on [P2P-CKPlayer](https://github.com/cdnbye/P2P-CKPlayer)
+    - See [ckplayer demo](https://docs.cdnbye.com/#/en/players?id=ckplayer) based on [P2P-CKPlayer](https://github.com/cdnbye/P2P-CKPlayer)
 - [clappr](https://github.com/clappr/clappr)
-    - See [clappr-demo.html](demo/clappr-demo.html)
+    - See [clappr demo](https://docs.cdnbye.com/#/en/players?id=clappr)
 - [MediaElement.js](http://www.mediaelementjs.com/)
-    - See [mediaelement-demo.html](demo/mediaelement-demo.html)
+    - See [mediaelement demo](https://docs.cdnbye.com/#/en/players?id=mediaelementjs)
 - [TCPlayer](https://cloud.tencent.com/document/product/267/7479)(Tencent Cloud Player)
-    - See [tcplayer-demo.html](demo/tcplayer-demo.html)
+    - See [tcplayer demo](https://docs.cdnbye.com/#/en/players?id=tcplayer)
 - [Chimee](http://chimee.org/)
-    - See [chimee-demo.html](demo/chimee-demo.html)
+    - See [chimee demo](https://docs.cdnbye.com/#/en/players?id=chimee)
 - [XGPlayer](http://h5player.bytedance.com/en/)
-    - See [xgplayer-demo.html](demo/xgplayer-demo.html)
+    - See [xgplayer demo](https://docs.cdnbye.com/#/en/players?id=xgplayer)
 - `Add your customized player here`
     - CDNBye can be integrated into any HTML5 video player that with hls.js built in.
 
