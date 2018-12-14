@@ -21,6 +21,8 @@ export default function () {
         player = 'chimee';
     } else if (window.HlsJsPlayer) {
         player = 'xgplayer'; // 西瓜播放器
+    } else if (window.fluidPlayer) {
+        player = 'fluidplayer';
     }
     return player;
 }
