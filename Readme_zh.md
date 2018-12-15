@@ -88,6 +88,8 @@ CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
     - 参见 [xgplayer demo](https://docs.cdnbye.com/#/players?id=xgplayer)
 - [fluidplayer](https://www.fluidplayer.com/)
     - 参见 [fluidplayer demo](https://docs.cdnbye.com/#/players?id=fluidplayer)
+- [OpenPlayer](https://www.openplayerjs.com/)
+    - 参见 [OpenPlayer demo](https://docs.cdnbye.com/#/players?id=openplayer)
 - `欢迎贡献您的播放器demo`
     - CDNBye可以集成到内置hls.js的任何H5视频播放器中！
 

@@ -23,6 +23,8 @@ export default function () {
         player = 'xgplayer'; // 西瓜播放器
     } else if (window.fluidPlayer) {
         player = 'fluidplayer';
+    } else if (window.OpenPlayer) {
+        player = 'openplayer';
     }
     return player;
 }
