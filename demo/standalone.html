@@ -11,7 +11,9 @@
     if(Hls.isSupported()) {
         var video = document.getElementById('video');
         var hls = new Hls({
-            maxBufferSize: 0
+            maxBufferSize: 0,       // Highly recommended setting
+            maxBufferLength: 5,     // Highly recommended setting
+            liveSyncDuration: 30,   // Highly recommended setting
         });
         if (P2PEngine.isSupported()) {
             var engine = new P2PEngine(hls, {
