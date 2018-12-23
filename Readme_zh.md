@@ -97,6 +97,9 @@ CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
 ## API文档
 参见 [API.md](https://docs.cdnbye.com/#/API)
 
+## 后台管理系统
+在接入P2P插件后，访问`https://oms.cdnbye.com`，注册并绑定域名，即可查看该域名的P2P流量、在线人数、用户地理分布等信息。
+
 ## FAQ
 我们收集了一些[常见问题](https://docs.cdnbye.com/#/FAQ)。在报告issue之前请先查看一下。
 
