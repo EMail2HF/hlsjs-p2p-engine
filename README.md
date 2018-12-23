@@ -10,8 +10,7 @@
 </p>
 
 
-CDNBye hlsjs-p2p-engine implements [WebRTC](https://en.wikipedia.org/wiki/WebRTC) datachannel to scale live/vod video streaming by peer-to-peer network using bittorrent-like protocol. The forming peer network can be layed over other CDNs or on top of the origin server. Powered by [hls.js](https://github.com/video-dev/hls.js), it can play HLS on any platform with many popular HTML5 players such as video.js, JWPlayer and Flowplayer. BTW, if you need a p2p engine for [dash.js](https://github.com/Dash-Industry-Forum/dash.js), [tell me](https://github.com/cdnbye/dashjs-p2p-engine/issues/1)!
-
+CDNBye hlsjs-p2p-engine implements [WebRTC](https://en.wikipedia.org/wiki/WebRTC) datachannel to scale live/vod video streaming by peer-to-peer network using bittorrent-like protocol. The forming peer network can be layed over other CDNs or on top of the origin server. Powered by [hls.js](https://github.com/video-dev/hls.js), it can play HLS on any platform with many popular HTML5 players such as video.js, JWPlayer and Flowplayer. BTW, you can view how much traffic has been saved [here](https://oms.cdnbye.com)!
 ## Features
 - WebRTC data channels for lightweight peer-to-peer communication with no plugins
 - Support live and VOD streams over HLS protocol(m3u8)
@@ -74,7 +73,7 @@ See [Usage](http://docs.cdnbye.com/#/en/usage?id=usage)
 - [jwplayer](https://www.jwplayer.com/)
     - See [jwplayer demo](https://docs.cdnbye.com/#/en/players?id=jwplayer)
 - [DPlayer](https://github.com/MoePlayer/DPlayer)
-    - See [dplayer demo](https://docs.cdnbye.com/#/en/players?id=dplayer) based on [P2P-DPlayer](https://github.com/cdnbye/P2P-DPlayer).
+    - See [dplayer demo](https://docs.cdnbye.com/#/en/players?id=dplayer)
 - [CKPlayer](http://www.ckplayer.com/)
     - See [ckplayer demo](https://docs.cdnbye.com/#/en/players?id=ckplayer) based on [P2P-CKPlayer](https://github.com/cdnbye/P2P-CKPlayer)
 - [clappr](https://github.com/clappr/clappr)
