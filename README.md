@@ -98,7 +98,7 @@ See [Usage](http://docs.cdnbye.com/#/en/usage?id=usage)
 See [API.md](https://docs.cdnbye.com/#/en/API)
 
 ## Console
-Bind your domain in `https://oms.cdnbye.com`, then you can view p2p-related information.
+Bind your domain in `https://oms.cdnbye.com`, where you can view p2p-related information.
 
 ## FAQ
 We have collected some [frequently asked questions](https://docs.cdnbye.com/#/en/FAQ). Before reporting an issue, please search if the FAQ has the answer to your problem.

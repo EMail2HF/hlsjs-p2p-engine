@@ -7,12 +7,16 @@ if (__IS_HLSJS_LIGHT__) {
     Hlsjs = require('hls.js');
 }
 
-let recommendedHlsjsConfig = {
+const liveHlsjsConfig = {
     maxBufferSize: 0,
     maxBufferLength: 5,
     // liveSyncDurationCount: 10,
     liveSyncDuration: 30,
-    fragLoadingTimeOut: 4000,              // used by fragment-loader
+    // fragLoadingTimeOut: 4000,              // used by fragment-loader
+};
+
+const VODHlsjsConfig = {
+    maxBufferSize: 8*1000*1000, // pre-buffer for smooth play
 };
 
 class CDNByeHlsjs extends Hlsjs{
@@ -24,8 +28,9 @@ class CDNByeHlsjs extends Hlsjs{
     constructor(config = {}) {
 
         let p2pConfig = config.p2pConfig || {};
-
+        const recommendedHlsjsConfig = p2pConfig.live === false? VODHlsjsConfig : liveHlsjsConfig;
         let mergedHlsjsConfig = JSON.parse(JSON.stringify(recommendedHlsjsConfig)); // 防止引用
+        console.warn(JSON.stringify(recommendedHlsjsConfig));
         for (let prop in config) {
             if (prop === 'p2pConfig') continue;
             mergedHlsjsConfig[prop] = config[prop];
