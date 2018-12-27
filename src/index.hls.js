@@ -30,7 +30,6 @@ class CDNByeHlsjs extends Hlsjs{
         let p2pConfig = config.p2pConfig || {};
         const recommendedHlsjsConfig = p2pConfig.live === false? VODHlsjsConfig : liveHlsjsConfig;
         let mergedHlsjsConfig = JSON.parse(JSON.stringify(recommendedHlsjsConfig)); // 防止引用
-        console.warn(JSON.stringify(recommendedHlsjsConfig));
         for (let prop in config) {
             if (prop === 'p2pConfig') continue;
             mergedHlsjsConfig[prop] = config[prop];
