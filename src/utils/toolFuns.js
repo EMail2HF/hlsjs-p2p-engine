@@ -1,8 +1,8 @@
 import URLToolkit from 'url-toolkit';
 
 // 获取segment Id的函数
-export function defaultSegmentId(streamLevel, segmentSn, segmentUrl) {
-    return `${streamLevel}-${segmentSn}`
+export function defaultSegmentId(level, sn, segmentUrl) {
+    return `${level}-${sn}`
     // return `${streamLevel}-${segmentUrl}`
 }
 
@@ -15,6 +15,11 @@ export function defaultChannelId(url, browserInfo = {}) {
     const streamParsed = URLToolkit.parseURL(url);
     const streamId = streamParsed.netLoc.substr(2) + streamParsed.path.split('.')[0];
     return `${streamId}`;
+}
+
+// 对P2P下载的segment进行校验的函数
+export function defaultSegValidation(level, sn, buffer) {
+    return true;
 }
 
 export function noop() {

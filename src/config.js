@@ -25,6 +25,7 @@ let defaultP2PConfig = {
 
     channelId: null,                             // 标识channel的字段，默认是'[path]-[protocol version]'
     segmentId: null,                             // 标识ts文件的字段，默认是'[level]-[sn]'
+    validateSegment: null,                       // 对P2P方式下载的ts文件进行校验，返回值是true代表验证通过，否则不通过，默认true
 
     webRTCConfig: {},                            // 传入channelConfig用于createDataChannel，config用于RTCPeerConnection
 

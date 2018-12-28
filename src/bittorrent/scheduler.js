@@ -1,6 +1,5 @@
 import EventEmitter from 'events';
 import {Events} from 'core';
-// import {segmentId} from '../utils/toolFuns';
 
 class Scheduler extends EventEmitter {
     constructor(engine, config) {
@@ -262,20 +261,31 @@ class Scheduler extends EventEmitter {
                 }
             })
             .on(Events.DC_RESPONSE, response => {                                            //接收到完整二进制数据
-                if (this.criticalSeg && this.criticalSeg.segId === response.seg_id && this.criticaltimeouter) {
-                    logger.info(`receive criticalSeg seg_id ${response.seg_id}`);
-                    window.clearTimeout(this.criticaltimeouter);                             //清除定时器
-                    this.criticaltimeouter = null;
-                    let stats = this.stats;
-                    stats.tload = Math.max(stats.tfirst, performance.now());
-                    stats.loaded = stats.total = response.data.byteLength;
-                    this.criticalSeg = null;
-                    this.context.frag.fromPeerId = dc.remotePeerId;
-                    this.callbacks.onSuccess(response, stats, this.context);
+                let { level, sn, data, seg_id } = response;
+                const isCritical = this.criticalSeg && this.criticalSeg.segId === seg_id && this.criticaltimeouter;
+                const verified = this.config.validateSegment(level, sn, data);                           // 对数据进行校验，防止节点作恶
+                if (verified) {
+                    if (isCritical) {
+                        logger.info(`receive criticalSeg seg_id ${seg_id}`);
+                        window.clearTimeout(this.criticaltimeouter);                                 //清除定时器
+                        this.criticaltimeouter = null;
+                        let stats = this.stats;
+                        stats.tload = Math.max(stats.tfirst, performance.now());
+                        stats.loaded = stats.total = data.byteLength;
+                        this.criticalSeg = null;
+                        this.context.frag.fromPeerId = dc.remotePeerId;
+                        this.callbacks.onSuccess(response, stats, this.context);
+                    } else {
+                        this.bufMgr.handleFrag(sn, level, seg_id, data, dc.remotePeerId, false);
+                    }
+                    this.updateLoadedSN(sn);
                 } else {
-                    this.bufMgr.handleFrag(response.sn, response.level, response.seg_id, response.data, dc.remotePeerId, false);
+                    logger.warn(`segment ${level}-${sn} validate failed`);
+                    if (isCritical) {
+                        window.clearTimeout(this.criticaltimeouter);                                 //清除定时器
+                        this._criticaltimeout();
+                    }
                 }
-                this.updateLoadedSN(response.sn);
             })
             .on(Events.DC_REQUEST, msg => {
                 let segId = '';

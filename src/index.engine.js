@@ -6,7 +6,7 @@ import SegmentManager from './segment-manager';
 import {Events, Fetcher, getBrowserRTC, DataChannel} from 'core';
 import Logger from './utils/logger';
 import platform from './utils/platform';
-import { defaultChannelId, defaultSegmentId, isBlockType} from './utils/toolFuns';
+import {defaultChannelId, defaultSegmentId, defaultSegValidation, isBlockType} from './utils/toolFuns';
 import getPlayer from './utils/player-detector';
 
 class P2PEngine extends EventEmitter {
@@ -20,14 +20,18 @@ class P2PEngine extends EventEmitter {
         super();
 
         this.config = Object.assign({}, defaultP2PConfig, p2pConfig);
-
-        if (!this.config.channelId || typeof this.config.channelId !== 'function') {
+        let { channelId, segmentId, validateSegment } = this.config;
+        if (!channelId || typeof channelId !== 'function') {
             this.config.channelId = defaultChannelId;
         }
-        if (!this.config.segmentId || typeof this.config.segmentId !== 'function') {
+        if (!segmentId || typeof segmentId !== 'function') {
             this.config.segmentId = defaultSegmentId;
         }
         hlsjs.config.segmentId = this.config.segmentId;
+
+        if (!validateSegment || typeof validateSegment !== 'function') {
+            this.config.validateSegment = defaultSegValidation;
+        }
 
         this.hlsjs = hlsjs;
 
