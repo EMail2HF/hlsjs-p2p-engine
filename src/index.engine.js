@@ -20,18 +20,8 @@ class P2PEngine extends EventEmitter {
         super();
 
         this.config = Object.assign({}, defaultP2PConfig, p2pConfig);
-        let { channelId, segmentId, validateSegment } = this.config;
-        if (!channelId || typeof channelId !== 'function') {
-            this.config.channelId = defaultChannelId;
-        }
-        if (!segmentId || typeof segmentId !== 'function') {
-            this.config.segmentId = defaultSegmentId;
-        }
-        hlsjs.config.segmentId = this.config.segmentId;
 
-        if (!validateSegment || typeof validateSegment !== 'function') {
-            this.config.validateSegment = defaultSegValidation;
-        }
+        hlsjs.config.segmentId = this.config.segmentId;
 
         this.hlsjs = hlsjs;
 

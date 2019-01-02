@@ -1,5 +1,6 @@
 
 import { config as btConfig } from './bittorrent';
+import URLToolkit from 'url-toolkit';
 
 //时间单位统一为秒
 let defaultP2PConfig = {
@@ -23,10 +24,6 @@ let defaultP2PConfig = {
 
     tag: '',                                     // 用户自定义标签，默认为hlsjs版本号
 
-    channelId: null,                             // 标识channel的字段，默认是'[path]-[protocol version]'
-    segmentId: null,                             // 标识ts文件的字段，默认是'[level]-[sn]'
-    validateSegment: null,                       // 对P2P方式下载的ts文件进行校验，返回值是true代表验证通过，否则不通过，默认true
-
     webRTCConfig: {},                            // 传入channelConfig用于createDataChannel，config用于RTCPeerConnection
 
     p2pBlackList: ['aac', 'mp3', 'vtt', 'webvtt'],                // 不参与P2P的文件类型，防止报错
@@ -34,6 +31,29 @@ let defaultP2PConfig = {
     agent: '',                                   // 代理商标识
 
     ...btConfig
+};
+
+/*
+    fun: channelId generator
+    streamId: 用于标识流地址的ID
+    signalId: 用于标识信令地址的ID，在channelID加上这个可以防止不同信令服务器下的节点混在一起
+ */
+defaultP2PConfig.channelId = function (url, browserInfo = {}) {
+    const streamParsed = URLToolkit.parseURL(url);
+    const streamId = streamParsed.netLoc.substr(2) + streamParsed.path.split('.')[0];
+    return `${streamId}`;
+};
+
+// 获取segment Id的函数
+defaultP2PConfig.segmentId = function (level, sn, segmentUrl) {
+    return `${level}-${sn}`; // 默认是'[level]-[sn]'
+    // return `${streamLevel}-${segmentUrl}`
+};
+
+// 对P2P方式下载的ts文件进行校验，返回值是true代表验证通过，否则不通过，默认true
+defaultP2PConfig.validateSegment = function (level, sn, buffer) {
+    // do nothing
+    return true;
 };
 
 export default defaultP2PConfig;
