@@ -8,8 +8,9 @@
     <tbody ></tbody>
 </table>
 <script>
+    var source = 'https://video-dev.github.io/streams/x36xhzz/url_2/193039199_mp4_h264_aac_ld_7.m3u8';
+    var video = document.getElementById('video');
     if(Hls.isSupported()) {
-        var video = document.getElementById('video');
         var hls = new Hls({
             maxBufferSize: 0,       // Highly recommended setting
             maxBufferLength: 5,     // Highly recommended setting
@@ -26,8 +27,7 @@
                 document.querySelector('#info').innerText = `p2p ratio: ${Math.round(totalP2PDownloaded/total*100)}%, saved traffic: ${totalP2PDownloaded}KB`;
             })
         }
-
-        hls.loadSource('https://video-dev.github.io/streams/x36xhzz/url_2/193039199_mp4_h264_aac_ld_7.m3u8');
+        hls.loadSource(source);
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED,function(event, data) {
             video.play();
@@ -50,5 +50,12 @@
                     <td>${infoStr}</td>
                 </tr>`
         };
+    }
+    // This is using the built-in support of the plain video element, without using hls.js.
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = source;
+        video.addEventListener('loadedmetadata',function() {
+            video.play();
+        });
     }
 </script>

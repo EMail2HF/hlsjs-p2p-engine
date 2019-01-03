@@ -42,6 +42,7 @@ class P2PEngine extends EventEmitter {
                 version: P2PEngine.version,
                 tag: this.config.tag || getPlayer(),  // tag默认是第三方播放器名称
                 live: isLive,
+                type: 'hls',
                 agent: this.config.agent || undefined,
             };
             const signalId = URLToolkit.parseURL(this.config.wsSignalerAddr).netLoc.substr(2);
