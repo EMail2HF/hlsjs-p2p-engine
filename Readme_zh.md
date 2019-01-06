@@ -74,7 +74,7 @@ CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
 - [jwplayer](https://www.jwplayer.com/)
     - 参见 [jwplayer demo](https://docs.cdnbye.com/#/players?id=jwplayer)
 - [DPlayer](https://github.com/MoePlayer/DPlayer)
-    - 参见 [dplayer demo](https://docs.cdnbye.com/#/players?id=dplayer%E6%8E%A8%E8%8D%90)，基于嵌入hlsjs-p2p-engine的[P2P-DPlayer](https://github.com/cdnbye/P2P-DPlayer)
+    - 参见 [dplayer demo](https://docs.cdnbye.com/#/players?id=dplayer%E6%8E%A8%E8%8D%90)
 - [CKPlayer](http://www.ckplayer.com/)
     - 参见 [ckplayer demo](https://docs.cdnbye.com/#/players?id=ckplayer)，基于嵌入hlsjs-p2p-engine的[P2P-CKPlayer](https://github.com/cdnbye/P2P-CKPlayer)
 - [clappr](https://github.com/clappr/clappr)
