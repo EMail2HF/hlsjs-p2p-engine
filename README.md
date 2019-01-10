@@ -48,7 +48,7 @@ WebRTC has already been incorporated into the HTML5 standard and it is broadly d
 
  Compatibility|Chrome | Firefox | macOS Safari| Android Wechat/QQ | Opera | IE | Edge| iOS Safari | 
 :-: | :-: | :-: | :-: | :-: | :-: | :-:| :-:| :-:
-WebRTC | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ✔ |
+WebRTC Datachannel | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ✔ |
 Hls.js | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ |
 CDNBye | ✔ | ✔ | ✔ | ✔ | ✔ | ❌ | ❌ | ❌ |
 
