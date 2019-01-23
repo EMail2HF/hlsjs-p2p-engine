@@ -86,7 +86,7 @@ class FragLoader extends EventEmitter {
                 if (!this.bufMgr.hasSegOfId(segId)) {
                     this.bufMgr.handleFrag(frag.sn, frag.level, segId, response.data, frag.fromPeerId || this.fetcher.peerId, true);
                 }
-                this.fetcher.reportFlow(stats, frag.loadByP2P);
+                if (!frag.loadByP2P) this.fetcher.reportFlow(stats.total);
                 frag.loaded = stats.loaded;
                 logger.debug(`${frag.loadByP2P ? 'P2P' : 'HTTP'} loaded segment id ${segId}`);
                 onSuccess(response,stats,context);
@@ -100,7 +100,7 @@ class FragLoader extends EventEmitter {
                 if (!this.bufMgr.hasSegOfId(segId)) {
                     this.bufMgr.handleFrag(frag.sn, frag.level, segId, response.data, this.fetcher.peerId, true);
                 }
-                this.fetcher.reportFlow(stats, false);
+                this.fetcher.reportFlow(stats.total);
                 logger.info(`HTTP load time ${stats.tload - stats.trequest}ms`)
                 this.scheduler.loadTimeSample = stats.tload - stats.trequest;
                 onSuccess(response,stats,context);
